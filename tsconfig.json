@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "modules": ["src/modules"],
+      "images": ["src/images"]
+    },
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2015",
+    "module": "commonjs",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
