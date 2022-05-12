@@ -38,10 +38,10 @@ const config: webpack.Configuration = {
                     corejs: '3.22.5',
                   },
                 ],
+                '@babel/preset-typescript',
               ],
             },
           },
-          'ts-loader',
         ],
       },
       {
