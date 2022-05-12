@@ -12,7 +12,7 @@ const config: webpack.Configuration = {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[hash].js',
+    filename: '[name].[contenthash].js',
   },
   module: {
     rules: [
@@ -23,7 +23,22 @@ const config: webpack.Configuration = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env'],
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    targets: {
+                      edge: '17',
+                      firefox: '60',
+                      chrome: '67',
+                      safari: '11.1',
+                      ie: '11',
+                    },
+                    useBuiltIns: 'usage',
+                    corejs: '3.22.5',
+                  },
+                ],
+              ],
             },
           },
           'ts-loader',
