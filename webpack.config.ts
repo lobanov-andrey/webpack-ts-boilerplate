@@ -1,6 +1,7 @@
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import path from 'path'
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import webpack from 'webpack'
 
 const config: webpack.Configuration = {
@@ -37,10 +38,7 @@ const config: webpack.Configuration = {
   plugins: [new HtmlWebpackPlugin({ template: './public/index.html' }), new CleanWebpackPlugin()],
   resolve: {
     extensions: ['.ts', '.js'],
-    alias: {
-      modules: path.resolve(__dirname, 'src/modules/'),
-      images: path.resolve(__dirname, 'src/images/'),
-    },
+    plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
   },
 }
 
